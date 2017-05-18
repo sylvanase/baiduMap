@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>地图基本调用</title>
+	<script src="http://api.map.baidu.com/api?v=2.0&ak=KmqcYEwkUyar9wtcykadxq4xva5bty6P" type="text/javascript"></script>
+	<style>
+		html{
+			height:100%
+		}  
+		
+		body{
+			height:100%;
+			margin:0px;
+			padding:0px
+		}  
+		#container{
+			height:100%
+		}  
+	</style>
+</head>
+<body>
+	<div id="container"></div>
+	<script>
+		var map = new BMap.Map("container");          // 创建地图实例  
+		var point = new BMap.Point(116.404, 39.915);  // 创建点坐标  
+		map.centerAndZoom(point, 15);
+
+		var polyline = new BMap.Polyline([    
+		   new BMap.Point(116.399, 39.910),    
+		   new BMap.Point(116.405, 39.920)    
+		],    
+		 {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5}    
+		);
+		
+		map.addOverlay(new BMap.Marker(new BMap.Point(116.399, 39.910))); 
+		map.addOverlay(new BMap.Marker(new BMap.Point(116.405, 39.920)));    
+		map.addOverlay(polyline);
+
+
+	</script>
+</body>
+</html>
